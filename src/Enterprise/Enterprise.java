@@ -1,15 +1,15 @@
 package Enterprise;
+
 import Governance.Employee;
-import Governance.Salary;
+import Governance.SalaryAndQuestion;
 
 import java.util.ArrayList;
 
 
-public class Enterprise implements Salary {
+public class Enterprise implements SalaryAndQuestion {
 
     public String enterPriseName;
     public ArrayList<Employee> employees = new ArrayList<>();
-
 
 
     public Enterprise(String enterPriseName) {
@@ -19,9 +19,10 @@ public class Enterprise implements Salary {
     public Enterprise() {
     }
 
-    public void addEmployee(Employee employee){
+    public void addEmployee(Employee employee) {
         employees.add(employee);
     }
+
     public void removeEmployee(int index) {
         if (index >= 0 && index < employees.size()) {
             employees.remove(index);
@@ -37,19 +38,17 @@ public class Enterprise implements Salary {
 
     public void showEmployeesDataBase() {
         System.out.println("------ ENTERPRISE DATABASE --------");
-        System.out.println("------ "+ enterPriseName + " --------");
+        System.out.println("------ " + enterPriseName + " --------");
         for (Employee employee : employees) {
-            System.out.println("NAME: " +  employee.getName()) ;
-            System.out.println("CPF: " + employee.getCpf()) ;
+            System.out.println("NAME: " + employee.getName());
+            System.out.println("CPF: " + employee.getCpf());
             System.out.printf("BASE SALARY: R$%.2f%n", employee.calculateSalary());
             System.out.println("----------****----------");
-
 
         }
     }
 
-    public void options()
-    {
+    public void options() {
 
         System.out.println("(1) SHOW ALL EMPLOYEES ");
         System.out.println("(2) ADD EMPLOYEE");

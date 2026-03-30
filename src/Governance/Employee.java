@@ -1,6 +1,6 @@
 package Governance;
 
-public abstract class Employee implements Salary  {
+public abstract class Employee implements SalaryAndQuestion {
     private String name;
     private String cpf;
     private double baseSalary;
@@ -38,7 +38,7 @@ public abstract class Employee implements Salary  {
     public String toString() {
         return
                 "\nname='" + name + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", baseSalary=" + baseSalary ;
+                        ", cpf='" + cpf + '\'' +
+                        ", baseSalary=" + baseSalary;
     }
 }

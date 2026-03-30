@@ -2,7 +2,7 @@ package Governance;
 
 import java.util.Scanner;
 
-public class EmployeePJ extends Employee  {
+public class EmployeePJ extends Employee {
 
     private int tax;
 
@@ -10,15 +10,15 @@ public class EmployeePJ extends Employee  {
         super(name, cpf, baseSalary);
         this.tax = tax;
     }
+
     // construtor com scanner
     public EmployeePJ(Scanner sc) {
         super(readName(sc), readCpf(sc), readBaseSalary(sc));
 
         System.out.print("Tax rate (ex: 0.15 = 15%): ");
-        this.tax= sc.nextInt();
+        this.tax = sc.nextInt();
         sc.nextLine();
     }
-
 
 
     public EmployeePJ() {
@@ -27,7 +27,8 @@ public class EmployeePJ extends Employee  {
     public int getTax() {
         return tax;
     }
-    // métodos auxiliares — mesma lógica do CLT
+
+
     private static String readName(Scanner sc) {
         System.out.print("Name: ");
         return sc.nextLine();
@@ -47,10 +48,11 @@ public class EmployeePJ extends Employee  {
 
     @Override
     public double calculateSalary() {
-        return (getBaseSalary() / tax ) * 100;
+        return (getBaseSalary() / tax) * 100;
     }
+
     @Override
-    public void askQuestion(){
+    public void askQuestion() {
 
     }
 

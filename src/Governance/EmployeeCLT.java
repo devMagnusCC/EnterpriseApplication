@@ -2,7 +2,7 @@ package Governance;
 
 import java.util.Scanner;
 
-public class EmployeeCLT extends Employee  {
+public class EmployeeCLT extends Employee {
     private int extraHours;
     private double extraHourValue;
 
@@ -16,9 +16,9 @@ public class EmployeeCLT extends Employee  {
     public EmployeeCLT(String name, String cpf, double baseSalary) {
         super(name, cpf, baseSalary);
     }
-    public EmployeeCLT(Scanner sc) { // ← recebe o Scanner
-        super(readName(sc), readCpf(sc), readBaseSalary(sc)); // lê os dados de Employee
 
+    public EmployeeCLT(Scanner sc) {
+        super(readName(sc), readCpf(sc), readBaseSalary(sc));
         System.out.print("EXTRA HOURS: ");
         this.extraHours = sc.nextInt();
 
@@ -26,6 +26,7 @@ public class EmployeeCLT extends Employee  {
         this.extraHourValue = sc.nextDouble();
         sc.nextLine();
     }
+
     public EmployeeCLT() {
 
     }
@@ -54,13 +55,14 @@ public class EmployeeCLT extends Employee  {
         sc.nextLine();
         return value;
     }
+
     @Override
     public double calculateSalary() {
-      return  getBaseSalary() + (extraHours * extraHourValue);
+        return getBaseSalary() + (extraHours * extraHourValue);
     }
 
     @Override
-    public void askQuestion(){
+    public void askQuestion() {
 
     }
 

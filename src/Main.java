@@ -1,6 +1,8 @@
 import Enterprise.Enterprise;
 import Governance.EmployeeCLT;
 import Governance.EmployeePJ;
+import Governance.EmployeeType;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,8 +20,9 @@ public class Main {
         enterprise.employees.add(employeeCLT);
         enterprise.askEnterpriseName();
         enterprise.enterPriseName = sc.nextLine();
+
         int option = 0;
-        while(option != 4){
+        while (option != 4) {
             enterprise.options();
             option = sc.nextInt();
             switch (option) {
@@ -27,17 +30,29 @@ public class Main {
                     enterprise.showEmployeesDataBase();
                     break;
                 case 2:
-                        System.out.println("(1)-CLT OR (2)-PJ?");
-                        System.out.println("CHOOSE ONE");
-                        int choice = sc.nextInt();
-                        sc.nextLine();
-                        if(choice == 1){
-                            enterprise.addEmployee(new EmployeeCLT(sc));
-                        }else if(choice == 2){
-                            enterprise.addEmployee(new EmployeePJ(sc));
-                        }
-                        System.out.println("NEW EMPLOYEE ADDED");
+
+                    System.out.println("(1)-CLT OR (2)-PJ?");
+                    System.out.println("CHOOSE ONE");
+
+                    int choice = sc.nextInt();
+                    sc.nextLine();
+
+                    EmployeeType type = EmployeeType.fromChoice(choice);
+
+                    if (type == null) {
+                        System.out.println("INVALID TYPE!");
                         break;
+                    }
+                    switch (type) {
+                        case CLT:
+                            enterprise.addEmployee(new EmployeeCLT(sc));
+                            System.out.println("CLT EMPLOYEE ADDED!");
+                            break;
+                        case PJ:
+                            enterprise.addEmployee(new EmployeePJ(sc));
+                            System.out.println("PJ EMPLOYEE ADDED!");
+                            break;
+                    }
                 case 3:
                     enterprise.showEmployeesDataBase();
                     System.out.println("CHOOSE INDEX TO REMOVE A EMPLOYEE");
@@ -49,10 +64,10 @@ public class Main {
                 case 4:
                     System.out.println("CLOSING PROGRAM...");
                     break;
-                    default:
-                        System.out.println("INVALID OPTION!");
-                        System.out.println("TRY AGAIN.!");
-                        break;
+                default:
+                    System.out.println("INVALID OPTION!");
+                    System.out.println("TRY AGAIN.!");
+                    break;
 
             }
         }

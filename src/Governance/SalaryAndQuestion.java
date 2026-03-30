@@ -1,8 +1,10 @@
 package Governance;
 
-public interface Salary {
+public interface SalaryAndQuestion {
 
     double calculateSalary();
+
+
     void askQuestion();
 
 }
